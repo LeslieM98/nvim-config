@@ -21,4 +21,6 @@ require('packer').startup(function(use)
     use 'folke/which-key.nvim'
     -- Icones
     use 'nvim-tree/nvim-web-devicons'
+    -- Rust
+    use 'simrat39/rust-tools.nvim'
 end)
