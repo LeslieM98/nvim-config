@@ -8,8 +8,22 @@ map('n', '<leader>g', ":echo 'works'<cr>", {})
 
 
 wk.register({
-  ["<leader>f"] = { name = "+test" },
-  ["<leader>fn"] = { "<CMD>echo 'works'<cr>", "Test String" },
+    ["<leader>f"] = {"<cmd> Telescope find_files<cr>", "Find file"}
+})
+wk.register({
+    ["<leader>o"] = {"<cmd> SymbolsOutline<cr>", "Outline"}
+})
+wk.register({
+    ["<leader>t"] = {"<cmd> NvimTreeToggle<cr>", "Outline"}
+})
+
+wk.register({
+    ["<leader>b"] = {name = "+Cargo"},
+    ["<leader>bc"] = {"<cmd>CargoClean<cr>", "Cargo Clean"},
+    ["<leader>br"] = {"<cmd>CargoRun<cr>", "Cargo Run"},
+    ["<leader>bb"] = {"<cmd>CargoBuild<cr>", "Cargo Build"},
+    ["<leader>bq"] = {"<cmd>CargoBench<cr>", "Cargo Bench"},
+    ["<leader>bt"] = {"<cmd>CargoTest<cr>", "Cargo Test"}
 })
 wk.register({
     ["<leader>c"] = {name = "+code"},
@@ -21,4 +35,4 @@ wk.setup({
     presets = {
       operators = false, -- adds help for operators like d, y, ... and registers them for motion / text object completion
       motions = false
-    }}})
+}}})

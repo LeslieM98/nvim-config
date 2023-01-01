@@ -16,7 +16,7 @@ rt.setup({
     end,
   },
 })
-
+rt.inlay_hints.enable()
 vim.g.coq_settings = {
     auto_start = true,
     clients = {
