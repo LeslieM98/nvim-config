@@ -1,38 +1,23 @@
 require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
-    use 'navarasu/onedark.nvim'
-    -- LSP
-    use 'williamboman/mason.nvim'
-    use 'williamboman/mason-lspconfig.nvim'
-    use 'neovim/nvim-lspconfig'
-    -- Debugging
-    use 'mfussenegger/nvim-dap'
-    -- Linter
-    use 'jose-elias-alvarez/null-ls.nvim'
-    -- Rust Lang
-    use 'simrat39/rust-tools.nvim'
-    use 'timonv/vim-cargo'
-    -- Utillity
-    use 'nvim-lua/plenary.nvim'
-    -- Autocomplete
-    use 'ms-jpq/coq_nvim'
-    -- Treesitter
-    use 'nvim-treesitter/nvim-treesitter'
-    -- Spacebar menu
-    use 'folke/which-key.nvim'
-    -- Icones
-    use 'nvim-tree/nvim-web-devicons'
+    use {'navarasu/onedark.nvim',
+        config = function() require('onedark').load() end}
+    use 'sbdchd/neoformat'
     -- Rust
-    use 'simrat39/rust-tools.nvim'
-    -- Filesexplorer
-    use {
-        'nvim-telescope/telescope.nvim', branch = '0.1.x',
-        requires = {{'nvim-lua/plenary.nvim'}}
-    }
+    use { "williamboman/mason.nvim",
+        config = function() require('mason').setup() end}
+
+    use 'neovim/nvim-lspconfig'
+    use {'simrat39/rust-tools.nvim', ft = {'rust'}}
+    use {'timonv/vim-cargo',
+        ft = {'rust'},
+        requires = {'simrat39/rust-tools.nvim'},
+        config = function() require('rust-config') end}
+    -- Autocompletion
+    use {'ms-jpq/coq_nvim',
+        config = function() require('coq-config') end}
+    -- Tree
     use 'nvim-tree/nvim-tree.lua'
-    -- Outline
-    use 'simrat39/symbols-outline.nvim'
 
 end)
 require("nvim-tree").setup()
-require("symbols-outline").setup()

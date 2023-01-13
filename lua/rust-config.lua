@@ -6,26 +6,14 @@ rt.setup({
   server = {
     on_attach = function(_, bufnr)
       -- Hover actions
-      vim.keymap.set("n", "<leader>ch", function() 
+      vim.keymap.set("n", "<F2>", function()
           rt.hover_actions.hover_actions()
           rt.hover_actions.hover_actions()
       end
           , { buffer = bufnr })
       -- Code action groups
-      vim.keymap.set("n", "<leader>ca", rt.code_action_group.code_action_group, { buffer = bufnr })
+      vim.keymap.set("n", "<F3>", rt.code_action_group.code_action_group, { buffer = bufnr })
     end,
   },
 })
 rt.inlay_hints.enable()
-vim.g.coq_settings = {
-    auto_start = true,
-    clients = {
-        lsp = {
-          enabled = true,
-        },
-        tree_sitter = {
-          enabled = true,
-    	},
-    }
-}
-require('coq')

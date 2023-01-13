@@ -1,10 +1,6 @@
 require('plugins')
-require('onedark').load()
-require('mason').setup()
-require('rust-config')
-require('nvim-web-devicons').setup()
 require('keymaps')
-
+require('neovide-config')
 
 vim.wo.number = true
 
