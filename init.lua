@@ -1,4 +1,6 @@
 require('plugins')
+require('coq-config')
+require('mason').setup()
 require('keymaps')
 require('neovide-config')
 
